@@ -37,14 +37,14 @@ optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(0.5, 0.999))
 cri_l1 = nn.L1Loss().to(device)
 cri_gan = nn.BCELoss().to(device)
 
-writer_input = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades_test/test_input',max_queue=100)
-writer_label = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades_test/test_label',max_queue=100)
-writer_fake = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades_test/test_fake',max_queue=100)
-writer_loss = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades_test/loss',max_queue=num_epoch)
+writer_input = SummaryWriter(f'./runs/facades_test/test_input',max_queue=100)
+writer_label = SummaryWriter(f'./runs/facades_test/test_label',max_queue=100)
+writer_fake = SummaryWriter(f'./runs/facades_test/test_fake',max_queue=100)
+writer_loss = SummaryWriter(f'./runs/facades_test/loss',max_queue=num_epoch)
 
 
-netD = torch.load('C:/coding/Pix2Pix_pytorch/Save_model/Disc.pt')
-netG = torch.load('C:/coding/Pix2Pix_pytorch/Save_model/Gan.pt')
+netD = torch.load('./Save_model/Disc.pt')
+netG = torch.load('./Save_model/Gan.pt')
 
 netD.eval()
 netG.eval()
