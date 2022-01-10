@@ -1,0 +1,17 @@
+
+Save_model/Gan.pt
+runs/facades_test/test_input/events.out.tfevents.1641245524.DESKTOP-BOO.10336.0
+runs/facades_test/loss/events.out.tfevents.1641245634.DESKTOP-BOO.25936.3
+*.3
+runs/facades_test/test_fake/events.out.tfevents.1641245524.DESKTOP-BOO.10336.2
+runs/facades_test/test_fake/events.out.tfevents.1641245634.DESKTOP-BOO.25936.2
+runs/facades_test/test_fake/events.out.tfevents.1641447751.DESKTOP-BOO.30844.2
+runs/facades_test/test_fake/events.out.tfevents.1641650799.DESKTOP-BOO.35068.2
+runs/facades_test/test_input/events.out.tfevents.1641245634.DESKTOP-BOO.25936.0
+runs/facades_test/test_input/events.out.tfevents.1641447751.DESKTOP-BOO.30844.0
+runs/facades_test/test_input/events.out.tfevents.1641650799.DESKTOP-BOO.35068.0
+runs/facades_test/test_label/events.out.tfevents.1641245524.DESKTOP-BOO.10336.1
+runs/facades_test/test_label/events.out.tfevents.1641245634.DESKTOP-BOO.25936.1
+runs/facades_test/test_label/events.out.tfevents.1641447751.DESKTOP-BOO.30844.1
+runs/facades_test/test_label/events.out.tfevents.1641650799.DESKTOP-BOO.35068.1
+Save_model/Disc.pt
