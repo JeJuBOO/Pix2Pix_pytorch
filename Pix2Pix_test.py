@@ -23,7 +23,7 @@ features_g = 64
 
 transform_test = transforms.Compose([Normalize(), ToTensor()])
 
-dataset_test = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/test/",transform=transform_test, direction='B2A')
+dataset_test = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/test/",transform=transform_test, direction='A2B')
 dataloader_test = DataLoader(dataset_test, batch_size=batch_size, shuffle=True)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -37,14 +37,14 @@ optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(0.5, 0.999))
 cri_l1 = nn.L1Loss().to(device)
 cri_gan = nn.BCELoss().to(device)
 
-writer_input = SummaryWriter(f'./runs/facades_test/test_input',max_queue=100)
-writer_label = SummaryWriter(f'./runs/facades_test/test_label',max_queue=100)
-writer_fake = SummaryWriter(f'./runs/facades_test/test_fake',max_queue=100)
-writer_loss = SummaryWriter(f'./runs/facades_test/loss',max_queue=num_epoch)
+writer_input = SummaryWriter(f'./runs/facades_a2b_test/test_input')
+writer_label = SummaryWriter(f'./runs/facades_a2b_test/test_label')
+writer_fake = SummaryWriter(f'./runs/facades_a2b_test/test_fake')
+writer_loss = SummaryWriter(f'./runs/facades_a2b_test/loss')
 
 
-netD = torch.load('./Save_model/Disc.pt')
-netG = torch.load('./Save_model/Gan.pt')
+netD = torch.load('./Save_model/Disc_a2b.pt')
+netG = torch.load('./Save_model/Gan_a2b.pt')
 
 netD.eval()
 netG.eval()

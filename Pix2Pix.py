@@ -20,7 +20,7 @@ lr = 0.0002
 batch_size = 4
 image_size = 256
 channels_img = 3
-num_epoch = 300
+num_epoch = 500
 wgt_l1 = 1e2
 wgt_gan = 1e0
 
@@ -39,10 +39,10 @@ transform_val = transforms.Compose([Normalize(), ToTensor()])
 
 transform_inv = transforms.Compose([ToNumpy(), Denomalize()])
 # dataset = datasets'Facades(root='dataset/', train=True, transform=my_transform, download=True)
-dataset = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/train/",transform=transform_train, direction='B2A')
+dataset = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/train/",transform=transform_train, direction='A2B')
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
-dataset_val = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/val/",transform=transform_val, direction='B2A')
+dataset_val = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/val/",transform=transform_val, direction='A2B')
 dataloader_val = DataLoader(dataset_val, batch_size=batch_size, shuffle=True)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -61,10 +61,10 @@ optimizerG = optim.Adam(netG.parameters(), lr=lr, betas=(0.5, 0.999))
 cri_l1 = nn.L1Loss().to(device)
 cri_gan = nn.BCELoss().to(device)
 
-writer_input = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades3/test_input',max_queue=100)
-writer_label = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades3/test_label',max_queue=100)
-writer_fake = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades3/test_fake',max_queue=100)
-writer_loss = SummaryWriter(f'c:/coding/Pix2Pix_pytorch/runs/facades3/loss',max_queue=num_epoch)
+writer_input = SummaryWriter(f'./runs/facades_a2b/test_input')
+writer_label = SummaryWriter(f'./runs/facades_a2b/test_label')
+writer_fake = SummaryWriter(f'./runs/facades_a2b/test_fake')
+writer_loss = SummaryWriter(f'./runs/facades_a2b/loss')
 print("훈련 시작 합니다.")
 step = 0
 
@@ -121,7 +121,7 @@ for epoch in range(num_epoch):
         lossD_fake_train += [lossD_fake.item()]
         lossG_train += [lossG.item()]
         lossD_train += [lossD.item()]
-        if epoch > 49:
+        if epoch > 100:
             lossG.backward()
             optimizerG.step()
     
@@ -191,8 +191,8 @@ for epoch in range(num_epoch):
         step += 1
 
 
-torch.save(netD, 'Save_model/Disc.pt')
-torch.save(netG, 'Save_model/Gan.pt')
+torch.save(netD, 'Save_model/Disc_a2b.pt')
+torch.save(netG, 'Save_model/Gan_a2b.pt')
 
 
 
