@@ -15,3 +15,11 @@ runs/facades_test/test_label/events.out.tfevents.1641245634.DESKTOP-BOO.25936.1
 runs/facades_test/test_label/events.out.tfevents.1641447751.DESKTOP-BOO.30844.1
 runs/facades_test/test_label/events.out.tfevents.1641650799.DESKTOP-BOO.35068.1
 Save_model/Disc.pt
+runs/facades_a2b/test_input/events.out.tfevents.1641923205.DESKTOP-BOO.29504.0
+runs/facades_a2b/test_fake/events.out.tfevents.1641923205.DESKTOP-BOO.29504.2
+Save_model/Disc_a2b.pt
+runs/facades_a2b_test/test_fake/events.out.tfevents.1641973565.DESKTOP-BOO.10628.2
+runs/facades_a2b/test_label/events.out.tfevents.1641923205.DESKTOP-BOO.29504.1
+runs/facades_a2b_test/test_input/events.out.tfevents.1641973565.DESKTOP-BOO.10628.0
+runs/facades_a2b_test/test_label/events.out.tfevents.1641973565.DESKTOP-BOO.10628.1
+Save_model/Gan_a2b.pt
