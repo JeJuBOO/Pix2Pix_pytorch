@@ -23,3 +23,9 @@ runs/facades_a2b/test_label/events.out.tfevents.1641923205.DESKTOP-BOO.29504.1
 runs/facades_a2b_test/test_input/events.out.tfevents.1641973565.DESKTOP-BOO.10628.0
 runs/facades_a2b_test/test_label/events.out.tfevents.1641973565.DESKTOP-BOO.10628.1
 Save_model/Gan_a2b.pt
+runs/facades_a2b_test/test_label/events.out.tfevents.1643172611.DESKTOP-BOO.5616.1
+runs/facades_a2b_test/test_input/events.out.tfevents.1643172611.DESKTOP-BOO.5616.0
+runs/facades_a2b_test/test_fake/events.out.tfevents.1643172611.DESKTOP-BOO.5616.2
+runs/facades_a2b/test_label/events.out.tfevents.1643101025.DESKTOP-BOO.5624.1
+runs/facades_a2b/test_input/events.out.tfevents.1643101025.DESKTOP-BOO.5624.0
+runs/facades_a2b/test_fake/events.out.tfevents.1643101025.DESKTOP-BOO.5624.2
