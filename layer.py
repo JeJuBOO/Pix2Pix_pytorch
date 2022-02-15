@@ -28,12 +28,12 @@ class cdk2d(nn.Module):
         
         if norm != None:
             layer += [nn.BatchNorm2d(out_ch)]
-        
-        if relu != None:
-            layer += [nn.LeakyReLU(relu)]
             
         if dropout != None:
-            layer += [nn.Dropout2d(dropout)]
+            layer += [nn.Dropout2d(dropout)] 
+            
+        if relu != None:
+            layer += [nn.LeakyReLU(relu)]
         
         self.net = nn.Sequential(*layer)
         

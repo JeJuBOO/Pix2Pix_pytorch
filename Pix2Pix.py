@@ -15,30 +15,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-# HyperParameters
+## HyperParameters
 lr = 0.0002
 batch_size = 4
 image_size = 256
 channels_img = 3
 num_epoch = 500
-wgt_l1 = 1e2
+wgt_l1 = 1e3
 wgt_gan = 1e0
-
 
 features_d = 64
 features_g = 64
 
-transform_train = transforms.Compose([
-    Rescale((286, 286)),
-    RandomCrop((image_size,image_size)),
-    ToTensor(),
-    Normalize(),
-    ])
-
+## 데이터 불러오기
+    #Jittering
+transform_train = transforms.Compose([Rescale((286, 286)),
+                                      RandomCrop((image_size,image_size)),
+                                      ToTensor(),
+                                      Normalize(),
+                                      ])
 transform_val = transforms.Compose([Normalize(), ToTensor()])
-
 transform_inv = transforms.Compose([ToNumpy(), Denomalize()])
-# dataset = datasets'Facades(root='dataset/', train=True, transform=my_transform, download=True)
+
 dataset = Dataset("C:/Users/BOO/OneDrive/바탕 화면/Facades/facades/train/",transform=transform_train, direction='A2B')
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
@@ -114,6 +112,10 @@ for epoch in range(num_epoch):
         
         lossG = (wgt_l1 * lossG_l1) + (wgt_gan * lossG_gan)
         
+        if epoch > 100:
+            lossG.backward()
+            optimizerG.step()
+            
         D_x_train += [D_x.item()]
         lossG_gan_train += [lossG_gan.item()]
         lossG_l1_train += [lossG_l1.item()]
@@ -121,9 +123,6 @@ for epoch in range(num_epoch):
         lossD_fake_train += [lossD_fake.item()]
         lossG_train += [lossG.item()]
         lossD_train += [lossD.item()]
-        if epoch > 100:
-            lossG.backward()
-            optimizerG.step()
     
     writer_loss.add_scalar('Gan loss train', np.mean(lossG_gan_train), global_step=step)
     writer_loss.add_scalar('L1 loss train', np.mean(lossG_l1_train), global_step=step)
