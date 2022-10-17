@@ -1,4 +1,3 @@
-from pickle import FALSE
 import torch
 import torchvision
 import torch.nn as nn
